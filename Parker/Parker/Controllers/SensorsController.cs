@@ -15,6 +15,12 @@ namespace Parker.Controllers
 {
     public class SensorsController : ApiController
     {
+        private static readonly Dictionary<string, Bitmap> sensorInputs = new Dictionary<string, Bitmap>();
+
+        public static void LoadSensorInput(string sensorName, string imagePath)
+        {
+            sensorInputs[sensorName] = (Bitmap)Bitmap.FromFile(imagePath);
+        }
         // GET: api/Sensors
         public IEnumerable<object> Get()
         {
@@ -46,7 +52,8 @@ namespace Parker.Controllers
             var sensorDto = js.Deserialize<SensorDto>(sensorFileContent);
             var parkingSpacesOutputs = new List<ParkingSpaceOutputDto>(sensorDto.ParkingSpaces.Length);
 
-            var inputImage = (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
+
+            var inputImage = sensorInputs[sensorName]??(Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
             var emptyImage = (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.EmptyImg}");
 
             var outputImage = (Bitmap)inputImage.Clone();
