@@ -1,0 +1,36 @@
+{
+  "name": "Work",
+  "address": "Mihai Eminescu 60, Targu Mures, Mures, Romania",
+  "coordinates": "46.5513356,24.5569696",
+  "mapUrl": "https://www.google.ro/maps/place/Strada+Mihai+Eminescu+60,+T%C3%A2rgu+Mure%C8%99/@46.5513356,24.5569696,431m/data=!3m1!1e3!4m5!3m4!1s0x474bb6306b760fd3:0xad5db9c462ca15d2!8m2!3d46.5514463!4d24.5577492",
+  "emptyImg": "Eminescu60 empty corrected.png",
+  "sensorMask": "Eminescu60 sensor mask.png",
+  "--inputSample": "Eminescu60 sample level.jpg",
+  "inputSample": "Eminescu60 empty sample.jpg",
+  "parkingSpaces": [
+    {
+      "name": "P1",
+      "threshold": 50,
+      "locationMask": "Eminescu60 p1 location.png",
+      "sensorMask": "Eminescu60 p1 sensor.png"
+    },
+    {
+      "name": "P2",
+      "threshold": 50,
+      "locationMask": "Eminescu60 p2 location.png",
+      "sensorMask": "Eminescu60 p2 sensor.png"
+    },
+    {
+      "name": "P3",
+      "threshold": 50,
+      "locationMask": "Eminescu60 p3 location.png",
+      "sensorMask": "Eminescu60 p3 sensor.png"
+    },
+    {
+      "name": "P4",
+      "threshold": 50,
+      "locationMask": "Eminescu60 p4 location.png",
+      "sensorMask": "Eminescu60 p4 sensor.png"
+    }
+  ]
+}

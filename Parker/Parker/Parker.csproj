@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Parker</RootNamespace>
     <AssemblyName>Parker</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,13 +53,13 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -112,6 +113,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -179,11 +181,17 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadFilesController.cs" />
+    <Compile Include="Controllers\SensorsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Dtos\ParkingSpaceDto.cs" />
+    <Compile Include="Dtos\ParkingSpaceOutputDto.cs" />
+    <Compile Include="Dtos\SensorDto.cs" />
+    <Compile Include="Dtos\SensorOutputDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\ImageOperations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -222,6 +230,28 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 empty corrected.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 empty sample.jpg" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 empty.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p1 location.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p1 sensor.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p2 location.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p2 sensor.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p3 location.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p3 sensor.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p4 location.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 p4 sensor.png" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 sample level.jpg" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 sample.jpg" />
+    <Content Include="Sensors\Eminescu60\Eminescu60 sensor mask.png" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 empty sample.jpg" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 empty.jpg" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 full sample.jpg" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 p1 location.png" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 p1 sensor.png" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 p2 location.png" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 p2 sensor.png" />
+    <Content Include="Sensors\EvreilorMartiri31\EvreilorMartiri31 sample.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -236,6 +266,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Sensors\Eminescu60\Eminescu60.pdn" />
+    <Content Include="Sensors\Eminescu60\sensor.json" />
+    <Content Include="Sensors\EvreilorMartiri31\sensor.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

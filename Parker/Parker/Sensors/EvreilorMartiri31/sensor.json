@@ -1,0 +1,25 @@
+{
+  "name": "Marinel's home",
+  "address": "Strada Evreilor Martiri 31, Târgu Mureș",
+  "coordinates": "46.5320478,24.5841571",
+  "mapUrl": "https://www.google.ro/maps/place/Strada+Evreilor+Martiri+31,+T%C3%A2rgu+Mure%C8%99/@46.5320478,24.5841571,17.26z/data=!4m5!3m4!1s0x474bb7009949cc11:0xe651509db85efcf1!8m2!3d46.5320466!4d24.5859613",
+  "emptyImg": "EvreilorMartiri31 empty.jpg",
+  "sensorMask": "EvreilorMartiri31 sensor mask.png",
+  "--inputSample": "EvreilorMartiri31 sample.jpg",
+  "inputSample": "EvreilorMartiri31 full sample.jpg",
+  "--inputSample": "EvreilorMartiri31 empty sample.jpg",
+  "parkingSpaces": [
+    {
+      "name": "P1",
+      "threshold": 50,
+      "locationMask": "EvreilorMartiri31 p1 location.png",
+      "sensorMask": "EvreilorMartiri31 p1 sensor.png"
+    },
+    {
+      "name": "P2",
+      "threshold": 50,
+      "locationMask": "EvreilorMartiri31 p2 location.png",
+      "sensorMask": "EvreilorMartiri31 p2 sensor.png"
+    }
+  ]
+}
