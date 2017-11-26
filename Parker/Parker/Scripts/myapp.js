@@ -52,7 +52,7 @@
     }
 
     $("#sensorselector").change(function () {
-        sensorReloadInterval = null;
+        clearInterval(sensorReloadInterval);
         var url = $("#sensorselector option:selected").val();
         var selectedSensor = getSelectedSensor(window.sensorData);
         selectedSensor.IsSelected = false;
