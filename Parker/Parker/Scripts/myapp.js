@@ -1,5 +1,9 @@
 ﻿(function () {
 
+    var availableParkingSpaces = 0;
+    var allParkingSpaces = 0
+    var intervalDuration = 1000;
+
     function getSelectedSensor(sensors) {
         for (var i = 0, len = sensors.length; i < len; i++) {
             if (sensors[i].IsSelected) return sensors[i];
@@ -14,19 +18,31 @@
         }
     }
 
+    function getAvailableParkingSpaces(spaces) {
+        var availableCount = 0;
+        for (var i = 0, len = spaces.length; i < len; i++) {
+            if (spaces[i].IsAvailable) {
+                availableCount++;
+            }
+        }
+        return availableCount;
+    }
+
     function getNewSensorData() {
 
-        var sensorData = getSelectedSensor(window.sensorData);
+        var selectedSensor = getSelectedSensor(window.sensorData);
 
-        $.getJSON(sensorData.Url, {
-            tags: "",
-            tagmode: "any",
-            format: "json"
-        })
+        $.getJSON(selectedSensor.Url, {})
             .done(function (data) {
-                if (data && data.items && data.items[0] && data.items[0].media)
-                    var imageUrl = data.items[0].media.m;
-                $("#sensorimg").attr("src", imageUrl);
+                allParkingSpaces = data.ParkingSpaces.length;
+                availableParkingSpaces = getAvailableParkingSpaces(data.ParkingSpaces);
+
+                $("#vacant").text(availableParkingSpaces);
+                $("#all").text(allParkingSpaces);
+
+                if (data && data.ImageUrl)
+                    var imageUrl = data.ImageUrl;
+                $("#sensorimg").attr("src", imageUrl + '&bla=' + Date.now());
             });
     }
 
@@ -38,9 +54,12 @@
         var newSelectedSensor = getSelectedSensorByUrl(window.sensorData, url);
         newSelectedSensor.IsSelected = true;
         getNewSensorData();
-        sensorReloadInterval = window.setInterval(function () { getNewSensorData(); }, 1000);
+        sensorReloadInterval = window.setInterval(function () { getNewSensorData(); }, intervalDuration);
     });
 
     getNewSensorData();
-    var sensorReloadInterval = window.setInterval(function () { getNewSensorData(); }, 1000);
+    var sensorReloadInterval = window.setInterval(function () { getNewSensorData(); }, intervalDuration);
+
+    $("#vacant").text(availableParkingSpaces);
+    $("#all").text(allParkingSpaces);
 })();

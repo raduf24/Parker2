@@ -5,6 +5,7 @@
 
 @Html.DropDownListFor(model => model.Sensors.First(m => m.IsSelected).Url, Parker.Controllers.HomeController.GetSensorsDropDown(Model.Sensors), new { @id = "sensorselector", @class = "form-control" })
 
+<h3>Vacancy: <p id="vacant" class="text-success"></p> of <p id="all" class="text-primary"></p></h3>
 
 <script>
     window.sensorData = @Html.Raw(Json.Encode(ViewBag.Items));
@@ -15,4 +16,4 @@
 
 <br />
 
-<img id="sensorimg" width="100%" class="img-responsive" alt="Loading..">
+<img id="sensorimg" width="100%" class="img-responsive">
