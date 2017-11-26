@@ -31,7 +31,6 @@ D:\WORK\ISDC\InnovationLab2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingD
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\bin\Debug\RecordingDeviceSimulator.exe.config
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\bin\Debug\RecordingDeviceSimulator.exe
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\bin\Debug\RecordingDeviceSimulator.pdb
-C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator.csprojResolveAssemblyReference.cache
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\MainWindow.g.cs
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\App.g.cs
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator_MarkupCompile.cache

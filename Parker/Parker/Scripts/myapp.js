@@ -3,6 +3,7 @@
     var availableParkingSpaces = 0;
     var allParkingSpaces = 0
     var intervalDuration = 1000;
+    
 
     function getSelectedSensor(sensors) {
         for (var i = 0, len = sensors.length; i < len; i++) {
@@ -42,7 +43,11 @@
 
                 if (data && data.ImageUrl)
                     var imageUrl = data.ImageUrl;
-                $("#sensorimg").attr("src", imageUrl + '&bla=' + Date.now());
+                    var newImage = new Image();
+                    newImage.src = imageUrl + '&bla=' + Date.now();
+                    newImage.onload = function () {
+                        $("#sensorimg").attr("src", imageUrl + '&bla=' + Date.now());
+                    }
             });
     }
 
@@ -62,4 +67,11 @@
 
     $("#vacant").text(availableParkingSpaces);
     $("#all").text(allParkingSpaces);
+
+    function imagesPreload() {
+        var imgArray = new Array("path/to/img1.jpg", "path/to/img2.jpg", "path/to/img3.jpg");
+        for (var i = 0; i < imgArray.length; i++) {
+            (new Image()).src = imgArray[i];
+        }
+    }
 })();
