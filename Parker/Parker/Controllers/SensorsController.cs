@@ -24,6 +24,11 @@ namespace Parker.Controllers
         // GET: api/Sensors
         public IEnumerable<object> Get()
         {
+            return GetWithLocalizedUrl(HttpContext.Current.Request.Url.OriginalString);
+        }
+
+        public IEnumerable<object> GetWithLocalizedUrl(string url)
+        {
             string sensorsPath = HttpContext.Current.Server.MapPath("~/Sensors/");
             var result = new List<object>();
             var js = new JavaScriptSerializer();
@@ -34,11 +39,11 @@ namespace Parker.Controllers
                 result.Add(new
                 {
                     Name = sensorDto.Name,
-                    Url = HttpContext.Current.Request.Url.OriginalString+"?sensorName="+urlName+"&outputJson=true",
+                    Url = url + "?sensorName=" + urlName + "&outputJson=true",
                     MapUrl = sensorDto.MapUrl,
                     Coordinates = sensorDto.Coordinates
                 });
-            }            
+            }
             return result.ToArray();
         }
 
