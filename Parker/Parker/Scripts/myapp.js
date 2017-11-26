@@ -57,6 +57,7 @@
         var selectedSensor = getSelectedSensor(window.sensorData);
         selectedSensor.IsSelected = false;
         var newSelectedSensor = getSelectedSensorByUrl(window.sensorData, url);
+        //$("#mapimg").attr("src", newSelectedSensor.MapUrl);
         newSelectedSensor.IsSelected = true;
         getNewSensorData();
         sensorReloadInterval = window.setInterval(function () { getNewSensorData(); }, intervalDuration);
@@ -68,10 +69,4 @@
     $("#vacant").text(availableParkingSpaces);
     $("#all").text(allParkingSpaces);
 
-    function imagesPreload() {
-        var imgArray = new Array("path/to/img1.jpg", "path/to/img2.jpg", "path/to/img3.jpg");
-        for (var i = 0; i < imgArray.length; i++) {
-            (new Image()).src = imgArray[i];
-        }
-    }
 })();

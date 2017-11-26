@@ -42,3 +42,4 @@ C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator.csproj.CoreCompileInputs.cache
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator.exe
 C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator.pdb
+C:\Users\Marinel\Source\Repos\Parker2\Parker\RecordingDeviceSimulator\obj\Debug\RecordingDeviceSimulator.csprojResolveAssemblyReference.cache
