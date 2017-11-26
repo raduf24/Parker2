@@ -25,7 +25,7 @@ namespace Parker.Controllers
             var filePath = currentDirectory + "/Photos/" + location + "/" + uploadedFile.FileName;
             (new FileInfo(filePath)).Directory.Create();
             uploadedFile.SaveAs(filePath);
-
+            SensorsController.LoadSensorInput(location, filePath);
             return Ok();
         }
     }

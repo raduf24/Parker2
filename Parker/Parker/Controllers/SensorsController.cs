@@ -15,8 +15,19 @@ namespace Parker.Controllers
 {
     public class SensorsController : ApiController
     {
+        private static readonly Dictionary<string, Bitmap> sensorInputs = new Dictionary<string, Bitmap>();
+
+        public static void LoadSensorInput(string sensorName, string imagePath)
+        {
+            sensorInputs[sensorName] = (Bitmap)Bitmap.FromFile(imagePath);
+        }
         // GET: api/Sensors
         public IEnumerable<object> Get()
+        {
+            return GetWithLocalizedUrl(HttpContext.Current.Request.Url.OriginalString);
+        }
+
+        public IEnumerable<object> GetWithLocalizedUrl(string url)
         {
             string sensorsPath = HttpContext.Current.Server.MapPath("~/Sensors/");
             var result = new List<object>();
@@ -28,11 +39,11 @@ namespace Parker.Controllers
                 result.Add(new
                 {
                     Name = sensorDto.Name,
-                    Url = HttpContext.Current.Request.Url.OriginalString+"?sensorName="+urlName+"&outputJson=true",
+                    Url = url + "?sensorName=" + urlName + "&outputJson=true",
                     MapUrl = sensorDto.MapUrl,
                     Coordinates = sensorDto.Coordinates
                 });
-            }            
+            }
             return result.ToArray();
         }
 
@@ -46,7 +57,8 @@ namespace Parker.Controllers
             var sensorDto = js.Deserialize<SensorDto>(sensorFileContent);
             var parkingSpacesOutputs = new List<ParkingSpaceOutputDto>(sensorDto.ParkingSpaces.Length);
 
-            var inputImage = (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
+
+            var inputImage = sensorInputs.ContainsKey(sensorName)? sensorInputs[sensorName] : (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
             var emptyImage = (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.EmptyImg}");
 
             var outputImage = (Bitmap)inputImage.Clone();

@@ -86,11 +86,15 @@ namespace RecordingDeviceSimulator
             this.speedBox.Text = secondsDelay.ToString();
             this.DataContext = this;
             PauseResumeLabel = pauseText;
+            FilePath = "..//..//..//Parker//Photos//Marinel";
+            ServicePath = "http://localhost:49808/api/ReadFiles/AdiTest";
+
         }
 
         private void OpenPathDialog(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog openFolderDialog = new FolderBrowserDialog();
+            openFolderDialog.SelectedPath = FilePath;
             var dialogResult = openFolderDialog.ShowDialog();
 
             if (dialogResult == System.Windows.Forms.DialogResult.OK)
