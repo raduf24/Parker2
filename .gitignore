@@ -9,3 +9,7 @@ bin/
 obj/
 /Parker/.vs/Parker/v15/Server/sqlite3
 /Parker/.vs/Parker/v15/sqlite3
+/.vs/
+/bin/
+/obj/
+/Debug/
