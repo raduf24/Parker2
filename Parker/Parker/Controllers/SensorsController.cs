@@ -58,7 +58,7 @@ namespace Parker.Controllers
             var parkingSpacesOutputs = new List<ParkingSpaceOutputDto>(sensorDto.ParkingSpaces.Length);
 
 
-            var inputImage = sensorInputs[sensorName]??(Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
+            var inputImage = sensorInputs.ContainsKey(sensorName)? sensorInputs[sensorName] : (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.inputSample}");
             var emptyImage = (Bitmap)Bitmap.FromFile($"{sensorPath}/{sensorDto.EmptyImg}");
 
             var outputImage = (Bitmap)inputImage.Clone();
