@@ -112,7 +112,8 @@ namespace RecordingDeviceSimulator
 
         private void DecreaseSpeed(object sender, RoutedEventArgs e)
         {
-            secondsDelay--;
+            if(secondsDelay > 1)
+                secondsDelay--;
             this.speedBox.Text = secondsDelay.ToString();
             myTimer.Interval = secondsDelay * 1000;
         }
@@ -152,7 +153,7 @@ namespace RecordingDeviceSimulator
             }
             else
             {
-                myTimer.Stop();
+                fileCounter = 0;
             }
         }
 
