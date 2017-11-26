@@ -112,7 +112,8 @@ namespace RecordingDeviceSimulator
 
         private void DecreaseSpeed(object sender, RoutedEventArgs e)
         {
-            secondsDelay--;
+            if(secondsDelay > 1)
+                secondsDelay--;
             this.speedBox.Text = secondsDelay.ToString();
             myTimer.Interval = secondsDelay * 1000;
         }
@@ -126,6 +127,9 @@ namespace RecordingDeviceSimulator
 
                 WebClient myWebClient = new WebClient();
                 byte[] responseArray = myWebClient.UploadFile(ServicePath, currentFile.FullName);
+
+                System.Windows.Application.Current.Dispatcher.BeginInvoke((Action)(() => ImageSource = new BitmapImage(new Uri(currentFile.FullName))));
+                
                 //byte[] paramFileBytes = File.ReadAllBytes(currentFile.FullName);//ReadImageFile(currentFile);
 
                 //HttpContent bytesContent = new ByteArrayContent(paramFileBytes);
@@ -149,7 +153,7 @@ namespace RecordingDeviceSimulator
             }
             else
             {
-                myTimer.Stop();
+                fileCounter = 0;
             }
         }
 

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="987.745">
     <Grid Margin="0,0,-443,0">
         <Button HorizontalAlignment="Left"
-                Margin="380,36,0,0"
+                Margin="446,36,0,0"
                 VerticalAlignment="Top" 
                 Width="75" 
                 RenderTransformOrigin="-1.74,0.587" 
@@ -16,12 +16,12 @@
                 Height="23"
                 Content="Open">
         </Button>
-        <TextBox Name="pathTextBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" RenderTransformOrigin="0.5,0.5"
+        <TextBox Name="pathTextBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="431" RenderTransformOrigin="0.5,0.5"
                  Text="{Binding Path=FilePath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
         </TextBox>
         <Button Background="Green" Content="Start" HorizontalAlignment="Left" Margin="324,270,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-2.313,-1.027" Click="Start"/>
         <Button Background="red" Content="Stop" HorizontalAlignment="Left" Margin="421,270,0,0" VerticalAlignment="Top" Width="75" Click="Stop"/>
-        <TextBox Text="{Binding Path=ServicePath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+        <TextBox Text="{Binding Path=ServicePath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="431"/>
         <Label Content="Path" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
         <Label Content="Service url" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="Speed" HorizontalAlignment="Left" Height="26" Margin="10,133,0,0" VerticalAlignment="Top" Width="58"/>
