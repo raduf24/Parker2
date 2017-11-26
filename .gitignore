@@ -4,6 +4,7 @@
 
 /Parker/.vs/Parker/v15/Server/sqlite3/db.lock
 *.lock
-/.vs
-bin/
-obj/
+/.vs/
+/bin/
+/obj/
+/Debug/
